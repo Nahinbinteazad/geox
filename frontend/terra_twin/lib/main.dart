@@ -15,6 +15,7 @@ import 'config.dart';
 
 // Coastline outlines live in their own file (see land_data.dart).
 import 'land_data.dart';
+import 'ask_geox_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -800,6 +801,7 @@ String _titleFor(Widget w) => switch (w) {
       LoginScreen() => 'Log in',
       RegisterScreen() => 'Register',
       ProfileScreen() => 'Profile',
+      AskGeoXPage() => 'Ask GeoX',
       _ => 'Page',
     };
 
@@ -1038,6 +1040,8 @@ class GeoXDrawer extends StatelessWidget {
                     () => _open(context, const PrioritiesScreen())),
                 _tile(Icons.bookmark_border, 'SHORTLIST',
                     () => _open(context, const ShortlistScreen())),
+                _tile(Icons.forum_outlined, 'ASK GEOX',
+                    () => _open(context, AskGeoXPage(targetName: Session.targetName))),
                 _tile(Icons.science_outlined, 'HOW IT WORKS',
                     () => _open(context, const SciencePage(standalone: true))),
                 _tile(Icons.menu_book_outlined, 'GLOSSARY',
@@ -2074,6 +2078,10 @@ class _DiscoverState extends State<DiscoverPage> {
                     style: head(26, accent),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis)),
+            IconButton(
+                tooltip: 'Ask GeoX',
+                icon: const Icon(Icons.forum_outlined, color: muted),
+                onPressed: () => go(c, AskGeoXPage(targetName: widget.targetName))),
             IconButton(
                 icon: const Icon(Icons.tune, color: muted),
                 onPressed: () => go(c, const PrioritiesScreen())),
