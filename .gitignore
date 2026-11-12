@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+
+backend/geox_api/app/geox.sqlite3
+
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
+*.log

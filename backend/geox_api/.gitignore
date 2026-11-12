@@ -1,0 +1,6 @@
+app/geox.sqlite3
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+app/earth_candidates.csv
